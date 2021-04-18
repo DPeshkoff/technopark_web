@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!-- W3C не разрешает использовать в href знаки <>, валидатор ругается, но это заглушки на будущее -->
+
+<head>
+    <!-- Метаданные -->
+
+    <meta charset="utf-8">
+    <meta name="description" content="Ask⊻Boom">
+    <meta name="keywords" content="AskOrBoom,AoB,Ask⊻Boom,web portal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заголовок страницы -->
+
+    <title>Ask⊻Boom</title>
+
+    <!-- Favicon -->
+    <link rel=icon href="../static/img/favicon.png" sizes="32x32" type="image/png">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="../static/js/base.js"></script>
+
+    <link rel="stylesheet" href="../static/css/base.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/tag.css" type="text/css">
+
+</head>
+
+<body>
+    <!-- Заголовок страницы -->
+    <header class="header">
+        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark">
+            <!-- Задаем логотип -->
+            <a class="navbar-brand" href="/">
+                <div>
+                    <img src="../static/img/site_logo.png" width="180" height="80" alt="Ask⊻Boom" />
+                </div>
+            </a>
+            <!-- Кнопка для узких экранов -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Меню начнем с поиска - на узком экране логотип все равно будет -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <div class="searchbar">
+                            <input class="search_input" type="text" name="search" placeholder="Search...">
+                            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Блок информации о юзере -->
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+
+                        <div class="btn-group show-on-hover">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                              <span class="text-navbar">Добро пожаловать, %USERNAME%</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<!-- settings -- >">Настройки</a></li>
+                                <li><a href="<!-- logout -- >">Выход</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- Аватарка пользователя смещена направо -->
+                    <li class="nav-item">
+                        <img src="../static/img/default_profile_picture.png" width="40" height="40" alt="Profile picture" />
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+
+    </header>
+
+    <main>
+        <!-- Главная секция  -->
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="list border-light bg-white list proviewlist shadow-sm">
+                        <div class="list-header">Новые вопросы | <a href="hot">Популярные вопросы</a></div>
+                        <div class="list-body">
+                            <div class="col-lg-12 p-3 question-list">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <a href="<!-- ссылочка на автора -->" class="w-100">
+                                                            <img src="../static/img/default_profile_picture.png" width="120" height="120" alt="Profile picture" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="d-block text-truncate mb-1">
+                                                        <a href="<!-- куда течет ток? -->" class="question-name">Куда течет ток?</a>
+                                                    </div>
+                                                    <div class="author d-block">
+                                                        <span>Автор вопроса: </span>
+                                                        <span>Shawklee</span>
+                                                    </div>
+                                                    <div class="question-description d-block">
+                                                        <span>Не могу понять, куда течет ток в транзисторе...</span>
+                                                    </div>
+                                                    <div class="question-description d-block">
+                                                        <span>Теги:<a href="#">Транзисторы</a>, <a href="#">Arduino</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-5 rating">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-minus"></i></button>
+                                                        </div>
+                                                        <input readonly type="text" class="form-control form-control-sm text-center" id="rating_0" value="8" required>
+                                                        <div class="input-group-append">
+                                                            <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-plus"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5"><a href="" class="answers">3 ответа</a></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 p-3 question-list">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <a href="<!-- ссылочка на автора -->" class="w-100">
+                                                            <img src="../static/img/default_profile_picture.png" width="120" height="120" alt="Profile picture" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="d-block text-truncate mb-1">
+                                                        <a href="<!-- иу6 -->" class="question-name">Проконсультируйте по дз</a>
+                                                    </div>
+                                                    <div class="author d-block">
+                                                        <span>Автор вопроса: </span>
+                                                        <span>студент_иу6</span>
+                                                    </div>
+                                                    <div class="question-description d-block">
+                                                        <span>Вообще ничего не понятно...</span>
+                                                    </div>
+                                                    <div class="question-description d-block">
+                                                        <span class="question-description">Теги: <a href="#">Arduino</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-5 rating">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-minus"></i></button>
+                                                        </div>
+                                                        <input readonly type="text" class="form-control form-control-sm text-center" id="rating_1" value="-9" required>
+                                                        <div class="input-group-append">
+                                                            <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-plus"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5"><a href="" class="answers">2 ответа</a></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 p-3 question-list">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <a href="<!-- ссылочка на автора -->" class="w-100">
+                                                            <img src="../static/img/default_profile_picture.png" width="120" height="120" alt="Profile picture" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="d-block text-truncate mb-1">
+                                                        <a href="<!-- оцените радио -->" class="question-name">Как вам мое радио?</a>
+                                                    </div>
+                                                    <div class="author d-block">
+                                                        <span>Автор вопроса: </span>
+                                                        <span>Попов</span>
+                                                    </div>
+                                                    <div class="question-description d-block">
+                                                        <span>Собрал на выходных...</span>
+                                                    </div>
+                                                    <div class="question-description d-block">
+                                                        <span>Теги:<a href="#">Инновации</a>, <a href="#">Arduino</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-5 rating">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-minus"></i></button>
+                                                        </div>
+                                                        <input readonly type="text" class="form-control form-control-sm text-center" id="rating_2" value="877" required>
+                                                        <div class="input-group-append">
+                                                            <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-plus"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5"><a href="" class="answers">523 ответа</a></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="list-footer border-light d-flex justify-content-center">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">«</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">»</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Правый блок -->
+                <aside class="col-4 right-block">
+                    <div class="container menu-right">
+                        <div class="right-list-content">
+                            <ul id="right-list-inner">
+                                <li>
+                                    <!-- Популярные теги -->
+                                    <h4><span class="plusminus">+</span> Популярные теги</h4>
+                                    <ul>
+                                        <li><a href="<!-- tag -- >">Усилители</a></li>
+                                        <li><a href="<!-- tag -- >">Триггеры</a></li>
+                                        <li><a href="<!-- tag -- >">Микроконтроллеры</a></li>
+                                        <li><a href="<!-- tag -- >">Arduino</a></li>
+                                        <li><a href="<!-- tag -- >">MOSFET</a></li>
+                                        <li><a href="<!-- tag -- >">Выпрямители</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Лучшие пользователи -->
+                                <li>
+                                    <h4><span class="plusminus">+</span> Лучшие пользователи</h4>
+                                    <ul>
+                                        <li><a href="<!-- user -- >">lorem</a></li>
+                                        <li><a href="<!-- user -- >">ipsum</a></li>
+                                        <li><a href="<!-- user -- >">dolor</a></li>
+                                        <li><a href="<!-- user -- >">sit</a></li>
+                                        <li><a href="<!-- user -- >">amet</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h4>+ <a href="<!-- add question -- >">Задать вопрос</a></h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+
+            </div>
+        </div>
+    </main>
+
+    <!-- "Подвал" страницы -->
+    <footer class="footer bottom section-padding bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="footer_text">
+                        <p>АПО-12, <a href="https://github.com/DPeshkoff" class="transition">DPeshkoff</a> Web-технологии, весна 2021.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

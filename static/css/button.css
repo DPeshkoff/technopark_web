@@ -1,0 +1,44 @@
+.button {
+    font-size: 14px;
+    text-align: center;
+    border: 0px solid transparent;
+    background: #c0392b;
+    color: #ffffff;
+    display: inline-block;
+    text-transform: capitalize;
+    vertical-align: middle;
+    padding: 8px 20px;
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.5s;
+}
+
+.button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #4341d6;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+    color: #ffffff;
+}
+
+.button:hover:before,
+.button:focus:before,
+.button:active:before {
+    transform: scaleY(1);
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}

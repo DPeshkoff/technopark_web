@@ -1,0 +1,102 @@
+html,
+body {
+    background: #ffffff;
+}
+
+.background-anim {
+    animation: scroll 390s linear infinite;
+    background: url("../img/login_background.png"), #111111;
+    color: #ffffff;
+    height: 100vh;
+    min-width: 360px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+
+@keyframes scroll {
+    100% {
+        background-position: 0px -3000px;
+    }
+}
+
+.user-card-register {
+    height: 550px;
+    width: 450px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.register0container {
+    padding: 0 1rem;
+}
+
+.input-group-text {
+    background: #c0392b !important;
+    color: #ffffff !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.input-user,
+.input-pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.button {
+    font-size: 14px;
+    text-align: center;
+    border: 0px solid transparent;
+    background: #c0392b;
+    color: #ffffff;
+    display: inline-block;
+    text-transform: capitalize;
+    vertical-align: middle;
+    padding: 8px 20px;
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.5s;
+}
+
+.button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #4341d6;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+    color: #ffffff;
+}
+
+.button:hover:before,
+.button:focus:before,
+.button:active:before {
+    transform: scaleY(1);
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}
