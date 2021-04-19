@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!-- W3C не разрешает использовать в href знаки <>, валидатор ругается, но это заглушки на будущее -->
+
+<head>
+    <!-- Метаданные -->
+
+    <meta charset="utf-8">
+    <meta name="description" content="Ask⊻Boom">
+    <meta name="keywords" content="AskOrBoom,AoB,Ask⊻Boom,web portal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заголовок страницы -->
+
+    <title>Ask⊻Boom</title>
+
+    <!-- Favicon -->
+    <link rel=icon href="../static/img/favicon.png" sizes="32x32" type="image/png">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="../static/js/base.js"></script>
+
+
+    <link rel="stylesheet" href="../static/css/base.css" type="text/css">
+
+    <link rel="stylesheet" href="../static/css/button.css" type="text/css">
+
+</head>
+
+<body>
+    <!-- Заголовок страницы -->
+    <header class="header">
+        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark">
+            <!-- Задаем логотип -->
+            <a class="navbar-brand" href="/">
+                <div>
+                    <img src="../static/img/site_logo.png" width="180" height="80" alt="Ask⊻Boom" />
+                </div>
+            </a>
+            <!-- Кнопка для узких экранов -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <!-- Меню начнем с поиска - на узком экране логотип все равно будет -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <div class="searchbar">
+                            <input class="search_input" type="text" name="search" placeholder="Поиск...">
+                            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Блок информации о юзере -->
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+
+                        <div class="btn-group show-on-hover">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                              <span class="text-navbar">Добро пожаловать, %USERNAME%</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<!-- settings -- >">Настройки</a></li>
+                                <li><a href="<!-- logout -- >">Выход</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- Аватарка пользователя смещена направо -->
+                    <li class="nav-item">
+                        <img src="../static/img/default_profile_picture.png" width="40" height="40" alt="Profile picture" />
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+
+    </header>
+
+    <main>
+        <!-- Главная секция  -->
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8">
+                            <h3>Задать вопрос</h3>
+                            <div class="container bg-light shadow-sm mb-3">
+                                <form action="question.html" id="create-form" class="needs-validation" novalidate>
+                                    <div class="form-group row p-3">
+                                        <label for="input-title" class="col-sm-3 col-form-label">Заголовок вопроса</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="input-title" maxlength="100" placeholder="Введите заголовок" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row p-3">
+                                        <label for="input-content" class="col-sm-3 col-form-label">Текст вопроса</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" id="input-content" placeholder="Введите текст вопроса" required></textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row p-3">
+                                        <label for="input-tags" class="col-sm-3 col-form-label">Теги</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="input-tags" placeholder="Укажите теги через запятую" required>
+                                            <div class="invalid-feedback">
+                                                Заполните это поле
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button id="send" class="button" type="submit">Отправить</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Правый блок -->
+                        <aside class="col-4 right-block">
+                            <div class="container menu-right">
+                                <div class="right-list-content">
+                                    <ul id="right-list-inner">
+                                        <li>
+                                            <!-- Популярные теги -->
+                                            <h4><span class="plusminus">+</span> Популярные теги</h4>
+                                            <ul>
+                                                <li><a href="<!-- tag -- >">Усилители</a></li>
+                                                <li><a href="<!-- tag -- >">Триггеры</a></li>
+                                                <li><a href="<!-- tag -- >">Микроконтроллеры</a></li>
+                                                <li><a href="<!-- tag -- >">Arduino</a></li>
+                                                <li><a href="<!-- tag -- >">MOSFET</a></li>
+                                                <li><a href="<!-- tag -- >">Выпрямители</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Лучшие пользователи -->
+                                        <li>
+                                            <h4><span class="plusminus">+</span> Лучшие пользователи</h4>
+                                            <ul>
+                                                <li><a href="<!-- user -- >">lorem</a></li>
+                                                <li><a href="<!-- user -- >">ipsum</a></li>
+                                                <li><a href="<!-- user -- >">dolor</a></li>
+                                                <li><a href="<!-- user -- >">sit</a></li>
+                                                <li><a href="<!-- user -- >">amet</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4>+ <a href="<!-- add question -- >">Задать вопрос</a></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- "Подвал" страницы -->
+    <footer class="footer bottom section-padding bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="footer_text">
+                        <p>АПО-12, <a href="https://github.com/DPeshkoff" class="transition">DPeshkoff</a> Web-технологии, весна 2021.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

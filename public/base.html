@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!-- W3C не разрешает использовать в href знаки <>, валидатор ругается, но это заглушки на будущее -->
+
+<head>
+    <!-- Метаданные -->
+
+    <meta charset="utf-8">
+    <meta name="description" content="Ask⊻Boom">
+    <meta name="keywords" content="AskOrBoom,AoB,Ask⊻Boom,web portal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заголовок страницы -->
+
+    <title>Ask⊻Boom</title>
+
+    <!-- Favicon -->
+    <link rel=icon href="../static/img/favicon.png" sizes="32x32" type="image/png">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="../static/js/base.js"></script>
+
+
+    <link rel="stylesheet" href="../static/css/base.css" type="text/css">
+
+</head>
+
+<body>
+    <!-- Заголовок страницы -->
+    <header class="header">
+        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark">
+            <!-- Задаем логотип -->
+            <a class="navbar-brand" href="/">
+                <div>
+                    <img src="../static/img/site_logo.png" width="180" height="80" alt="Ask⊻Boom" />
+                </div>
+            </a>
+            <!-- Кнопка для узких экранов -->
+            <button class="navbar-toggler" type="button" data-toggle="navbar-collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <!-- Меню начнем с поиска - на узком экране логотип все равно будет -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <div class="searchbar">
+                            <input class="search_input" type="text" name="search" placeholder="Search...">
+                            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Блок информации о юзере -->
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+
+                        <div class="btn-group show-on-hover">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                              <span class="text-navbar">Добро пожаловать, %USERNAME%</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<!-- settings -- >">Настройки</a></li>
+                                <li><a href="<!-- logout -- >">Выход</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- Аватарка пользователя смещена направо -->
+                    <li class="nav-item">
+                        <img src="../static/img/default_profile_picture.png" width="40" height="40" alt="Profile picture" />
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+
+    </header>
+
+    <main>
+        <!-- Главная секция  -->
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et arcu facilisis, volutpat ante vel, malesuada felis. Praesent nec sollicitudin ipsum. Quisque et malesuada augue, in egestas enim. Sed mauris erat, convallis et dignissim
+                        non, elementum ut mauris. Maecenas ullamcorper libero sed magna dictum, ac dapibus metus bibendum. Sed non orci neque. Suspendisse vulputate orci felis, eu lacinia nulla vehicula pretium. </p>
+                    <p>
+                        Duis semper dictum turpis eget fringilla. Phasellus convallis id libero quis varius. Suspendisse et vehicula arcu. Nam quis dui sit amet erat ultrices fringilla. Morbi vehicula, purus vel venenatis volutpat, ipsum ipsum dictum odio, a posuere nulla erat
+                        convallis velit. Aliquam eu mauris convallis, volutpat tortor ut, tempus mi. Phasellus blandit facilisis pharetra. Quisque tempor nulla vitae metus condimentum ultricies. Phasellus vehicula congue purus sit amet egestas. Fusce
+                        placerat vestibulum tempor. Vivamus nec enim id mi convallis tempor in ut quam. Aliquam nec dolor eget est efficitur rutrum.
+                    </p>
+                    <p>
+                        Praesent euismod aliquam ipsum ac vestibulum. Mauris sed cursus ipsum. Fusce suscipit rutrum lacus egestas pulvinar. Nulla facilisi. Aenean consequat ultrices pharetra. Aliquam erat volutpat. Nunc vestibulum pretium ullamcorper. Nam auctor ipsum ipsum,
+                        eu vehicula odio dignissim eu. Praesent et imperdiet justo. Donec et urna sit amet metus rhoncus eleifend. Duis id velit molestie, lobortis tellus non, cursus sem. Vestibulum laoreet ultrices turpis, et tempor ipsum mollis vitae.
+                        Etiam condimentum lacinia augue. Proin mattis sagittis quam, in eleifend eros faucibus vel.
+                    </p>
+                    <p>
+                        Vestibulum leo metus, sodales in suscipit sed, congue non nunc. Aenean id erat non tellus accumsan molestie eu eget velit. Ut vitae magna leo. Ut varius, sem a volutpat congue, massa lectus gravida ex, molestie pellentesque justo sapien id purus. Curabitur
+                        semper vulputate volutpat. Ut a eros tincidunt ante mollis porta. Pellentesque magna libero, euismod et orci et, tincidunt interdum dui. Duis tortor augue, dignissim sit amet eros quis, sodales posuere ex. Ut dapibus velit id sodales
+                        mattis. Sed consequat metus ac nulla bibendum accumsan. Cras non justo urna. Donec vel orci dolor. Aliquam scelerisque lorem a ipsum convallis, non volutpat sapien sollicitudin. Cras commodo, risus in aliquam bibendum, est turpis
+                        luctus ante, gravida venenatis quam elit et libero. Duis consequat, risus nec elementum suscipit, tellus eros aliquam nisl, id tincidunt purus lectus id nibh.
+                    </p>
+                    <p>
+                        Nulla scelerisque nulla eget ornare suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis tincidunt dolor augue. Proin eu mauris vitae odio posuere pellentesque a id turpis. Vivamus vehicula arcu
+                        ut dolor elementum convallis. Integer vulputate nisl lacus, sed cursus velit euismod eget. Aenean sit amet mauris fringilla, laoreet arcu eu, pellentesque quam. Nullam id aliquam nisi. Ut lacinia felis massa, iaculis congue nunc
+                        tempor et. Cras ultricies metus quis viverra imperdiet. Ut lobortis lorem elit, eget bibendum justo tempus eu. Aenean dapibus semper tortor. Praesent tristique eget nisl sit amet dictum. Ut purus nunc, laoreet nec felis ac, tincidunt
+                        convallis nisi. Aliquam ullamcorper convallis urna, at blandit metus volutpat id.
+                    </p>
+                </div>
+
+                <!-- Правый блок -->
+                <aside class="col-4 right-block">
+                    <div class="container menu-right">
+                        <div class="right-list-content">
+                            <ul id="right-list-inner">
+                                <li>
+                                    <!-- Популярные теги -->
+                                    <h4><span class="plusminus">+</span> Популярные теги</h4>
+                                    <ul>
+                                        <li><a href="<!-- tag -- >">Усилители</a></li>
+                                        <li><a href="<!-- tag -- >">Триггеры</a></li>
+                                        <li><a href="<!-- tag -- >">Микроконтроллеры</a></li>
+                                        <li><a href="<!-- tag -- >">Arduino</a></li>
+                                        <li><a href="<!-- tag -- >">MOSFET</a></li>
+                                        <li><a href="<!-- tag -- >">Выпрямители</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Лучшие пользователи -->
+                                <li>
+                                    <h4><span class="plusminus">+</span> Лучшие пользователи</h4>
+                                    <ul>
+                                        <li><a href="<!-- user -- >">lorem</a></li>
+                                        <li><a href="<!-- user -- >">ipsum</a></li>
+                                        <li><a href="<!-- user -- >">dolor</a></li>
+                                        <li><a href="<!-- user -- >">sit</a></li>
+                                        <li><a href="<!-- user -- >">amet</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h4>+ <a href="<!-- add question -- >">Задать вопрос</a></h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- "Подвал" страницы -->
+    <footer class="footer bottom section-padding bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="footer_text">
+                        <p>АПО-12, <a href="https://github.com/DPeshkoff" class="transition">DPeshkoff</a> Web-технологии, весна 2021.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
