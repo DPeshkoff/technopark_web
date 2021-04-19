@@ -8,7 +8,7 @@
     padding: 10px 16px;
 }
 
-.proviewlist .list-body {
+.list-body {
     padding: 0;
 }
 
@@ -63,11 +63,14 @@
 }
 
 .btn-rating {
+    position: relative;
+    display: inline;
+    overflow: auto;
     height: 25px;
-    color: #ffffff !important;
-    background-color: #555555 !important;
-    border-color: #555555 !important;
-    padding: 0px 3px !important;
+    color: #ffffff;
+    background-color: #555555;
+    border-color: #555555;
+    padding: 0px 0px;
 }
 
 .rating input {
