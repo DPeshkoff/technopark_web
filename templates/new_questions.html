@@ -1,2 +1,3 @@
 {% extends 'include/base.html' %} {% load static %} {% block css %}
-<link rel="stylesheet" href="{% static 'css/tag.css' %}" type="text/css"> {% endblock css %}{% block content %} {% for question in page_obj.object_list %} {% include 'include/question.html' %} {% endfor %} {% endblock content %} {% block pagination %} {% include 'include/pagination.html' %} {% endblock pagination %}
+<link rel="stylesheet" href="{% static 'css/tag.css' %}" type="text/css"> {% endblock css %}{% block content %}
+<h3>Новые вопросы | <a href="{% url 'popular_questions' %}">Популярные</a></h3> {% for question in page_obj.object_list %} {% include 'include/question.html' %} {% endfor %} {% endblock content %} {% block pagination %} {% include 'include/pagination.html' %} {% endblock pagination %}

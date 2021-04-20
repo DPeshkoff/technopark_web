@@ -75,5 +75,5 @@ class Command(BaseCommand):
                 answer = Answer.objects.create(
                     author_id=choice(profiles),
                     related_question_id=question_id,
-                    text=fake.text()
+                    content=fake.text()
                 )

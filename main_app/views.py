@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from main_app.models import UserProfile, Question, Answer
 from django.core.exceptions import ObjectDoesNotExist
 
-def paginate(objects_list, request, per_page=10):
+def paginate(objects_list, request, per_page=20):
     paginator = Paginator(objects_list, per_page)
     page_number = request.GET.get('page', 1)
     try:
@@ -30,11 +30,11 @@ def register(request):
 
 def settings(request):
     return render(request, 'settings.html')
-#
+
 
 def new_questions(request):
     questions = Question.objects.new_questions()
-    page = paginate(questions, request, 10)
+    page = paginate(questions, request, 20)
     return render(request, 'new_questions.html', {
         'page_obj': page
     })
@@ -42,7 +42,7 @@ def new_questions(request):
 
 def popular_questions(request):
     questions = Question.objects.popular_questions()
-    page = paginate(questions, request, 10)
+    page = paginate(questions, request, 20)
     return render(request, 'popular_questions.html', {
         'page_obj': page
     })
@@ -52,7 +52,7 @@ def question(request, pk):
     try:
         question = Question.objects.get(id=pk)
         answers = question.answers.best_answers()
-        page = paginate(answers, request, 10)
+        page = paginate(answers, request, 20)
         return render(request, 'question.html', {
             'question': question,
             'page_obj': page
@@ -64,7 +64,7 @@ def question(request, pk):
 
 def tags(request, tag):
     questions = Question.objects.questions_for_tag(tag).all()
-    page = paginate(questions, request, 10)
+    page = paginate(questions, request, 20)
     return render(request, 'tag.html', {
         'page_obj': page,
         'tag': tag

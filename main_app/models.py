@@ -75,7 +75,7 @@ class Answer(models.Model):
 
     related_question = models.ForeignKey('Question', on_delete=models.CASCADE, related_name="answers", related_query_name="answer")
 
-    text = models.TextField(verbose_name='Текст ответа')
+    content = models.TextField(verbose_name='Текст ответа')
 
     rating = models.IntegerField(default=0, verbose_name='Рейтинг ответа')
 
