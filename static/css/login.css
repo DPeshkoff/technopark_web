@@ -3,7 +3,7 @@ body {
     background: #ffffff;
 }
 
-.background_anim {
+.background-anim {
     animation: scroll 390s linear infinite;
     background: url("../img/login_background.png"), #111111;
     color: #ffffff;
