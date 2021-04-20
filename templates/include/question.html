@@ -1,0 +1,56 @@
+{% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/tag.css' %}" type="text/css"> {% endblock css %}{% block main %}
+<div class="col-lg-12 p-3 question-list">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row d-flex justify-content-center">
+                            <a href="#" class="w-100">
+                                <img src="{% static 'img/default_profile_picture.png' %} " width="120" height="120" alt="Profile picture" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="d-block text-truncate mb-1">
+                            <a href="{% url 'question' pk=question.id %}" class="question-name">{{ question.title }}</a>
+                        </div>
+                        <div class="author d-block">
+                            <span>Автор вопроса: </span>
+                            <span>{{ question.author }}</span>
+                        </div>
+                        <div class="question-description d-block">
+                            <span>{{ question.description }}</span>
+                        </div>
+                        <div class="question-description d-block">
+                            <span>Теги: {% for i in question.tags %}
+                                    <a href="{% url 'tags' tag=i %}">{{ i }}</a>
+                                {% endfor %}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 rating">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-minus"></i></button>
+                            </div>
+                            <input readonly type="text" class="form-control form-control-sm text-center" id="rating_0" value="{{ question.num_of_likes }}" required>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <p class="answers">{{ question.num_of_answers }} ответ(ов)</p>
+                    </div>
+                </div>
+            </div>
+
+
+            {% endblock main %} {% block end_divs %}
+        </div>
+    </div>
+</div>
+{% endblock end_divs %}

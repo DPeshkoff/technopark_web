@@ -1,0 +1,51 @@
+{% load static %}
+
+<header class="header">
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark">
+        <!-- Задаем логотип -->
+        <a class="navbar-brand" href="{% url 'root' %}">
+            <div>
+                <img src="{% static 'img/site_logo.png' %}" width="180" height="80" alt="Ask⊻Boom" />
+            </div>
+        </a>
+        <!-- Кнопка для узких экранов -->
+        <button class="navbar-toggler" type="button" data-toggle="navbar-collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <!-- Меню начнем с поиска - на узком экране логотип все равно будет -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <div class="searchbar">
+                        <input class="search_input" type="text" name="search" placeholder="Поиск...">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Блок информации о юзере -->
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <div class="btn-group show-on-hover">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          <span class="text-navbar">Добро пожаловать, %USERNAME%</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'settings' %}">Настройки</a></li>
+                            <li><a href="#">Выход</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Аватарка пользователя смещена направо -->
+                <li class="nav-item">
+                    <img src="{% static 'img/default_profile_picture.png' %}" width="40" height="40" alt="Profile picture" />
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+</header>

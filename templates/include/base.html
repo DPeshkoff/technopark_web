@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<!-- W3C не разрешает использовать в href знаки <>, валидатор ругается, но это заглушки на будущее -->
+
+<head>
+    <!-- Метаданные -->
+
+    <meta charset="utf-8">
+    <meta name="description" content="Ask⊻Boom">
+    <meta name="keywords" content="AskOrBoom,AoB,Ask⊻Boom,web portal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Заголовок страницы -->
+
+    <title>{% block title %}Ask⊻Boom{% endblock title %}</title>
+
+    <!-- Favicon -->
+    <link rel=icon href="{% static 'img/favicon.png' %}" sizes="32x32" type="image/png">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="{% static 'js/base.js' %}"></script>
+
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css"> {% block css %}{% endblock css %}
+
+</head>
+
+<body>
+    <!-- Заголовок страницы -->
+
+    {% include 'include/header.html' %}
+
+    <main>
+        <!-- Главная секция  -->
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    {% block content %} {% endblock content %}
+                </div>
+
+                <!-- Правый блок -->
+                <aside class="col-4 right-block">
+                    <div class="container menu-right">
+                        <div class="right-list-content">
+                            <ul id="right-list-inner">
+                                <li>
+                                    <!-- Популярные теги -->
+                                    <h4><span class="plusminus">+</span> Популярные теги</h4>
+                                    <ul>
+                                        <li><a href="{% url 'tags' tag='amplifiers' %}">Усилители</a></li>
+                                        <li><a href="{% url 'tags' tag='triggers' %}">Триггеры</a></li>
+                                        <li><a href="{% url 'tags' tag='microcontrollers' %}">Микроконтроллеры</a></li>
+                                        <li><a href="{% url 'tags' tag='Arduino' %}">Arduino</a></li>
+                                        <li><a href="{% url 'tags' tag='MOSFET' %}">MOSFET</a></li>
+                                        <li><a href="{% url 'tags' tag='rectifiers' %}">Выпрямители</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Лучшие пользователи -->
+                                <li>
+                                    <h4><span class="plusminus">+</span> Лучшие пользователи</h4>
+                                    <ul>
+                                        <li><a href="#">lorem</a></li>
+                                        <li><a href="#">ipsum</a></li>
+                                        <li><a href="#">dolor</a></li>
+                                        <li><a href="#">sit</a></li>
+                                        <li><a href="#">amet</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h4>+ <a href="{% url 'new_question' %}">Задать вопрос</a></h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+    {% block pagination %} {% endblock pagination %}
+
+</body>
+{% include 'include/footer.html' %} {% block script %} {% endblock script %}
+
+</html>
