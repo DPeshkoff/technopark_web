@@ -24,7 +24,7 @@
                             <span>{{ question.description }}</span>
                         </div>
                         <div class="question-description d-block">
-                            <span>Теги: {% for i in question.tags %}
+                            <span>Теги: {% for i in question.tags.all %}
                                     <a href="{% url 'tags' tag=i %}">{{ i }}</a>
                                 {% endfor %}</span>
                         </div>
@@ -36,7 +36,7 @@
                             <div class="input-group-prepend">
                                 <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-minus"></i></button>
                             </div>
-                            <input readonly type="text" class="form-control form-control-sm text-center" id="rating_0" value="{{ question.num_of_likes }}" required>
+                            <input readonly type="text" class="form-control form-control-sm text-center" id="rating_0" value="{{ question.rating }}" required>
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-sm btn-rating"><i class="fa fa-plus"></i></button>
                             </div>
