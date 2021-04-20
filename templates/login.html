@@ -1,0 +1,49 @@
+{% extends 'include/floating_login.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"> {% endblock css %} {% block content %}
+
+<form class="needs-validation" novalidate>
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card bg-dark">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <a href="{% url 'root' %}"><img src="{% static 'img/site_logo.png' %}" width="180" height="80" alt="Ask⊻Boom" /></a>
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input type="text" name="username" id="username" class="form-control input_user" required autofocus placeholder="Логин">
+                <div class="invalid-feedback">
+                    Пожалуйста, введите логин.
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name="password" id="password" class="form-control input_pass" required placeholder="Пароль">
+                <div class="invalid-feedback">
+                    Пожалуйста, введите пароль.
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-2 login_container">
+                <button type="submit" class="btn btn-danger">Войти</button>
+            </div>
+
+            <div class="d-flex justify-content-center mt-2">
+                Нет аккаунта?
+            </div>
+
+            <div class="d-flex justify-content-center mt-2 register_container">
+                <a class="button" href="{% url 'register' %}">Зарегистрироваться</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock content %} {% block script %}
+<script src="{% static 'js/validate.js' %}"></script> {% endblock script %}

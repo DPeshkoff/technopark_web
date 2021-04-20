@@ -1,0 +1,88 @@
+{% extends 'include/floating_login.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css"> {% endblock css %} {% block content %}
+
+<form class="needs-validation" novalidate>
+    <div class="d-flex justify-content-center h-100">
+        <div class="user-card-register bg-dark">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <a href="{% url 'root' %}"><img src="{% static 'img/site_logo.png' %}" width="180" height="80" alt="Ask⊻Boom" /></a>
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                </div>
+                <input type="text" name="username" id="username" class="form-control input_user" required autofocus value="" placeholder="Укажите свой логин">
+                <div class="invalid-feedback">
+                    Пожалуйста, введите логин.
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input type="email" name="email" id="email" class="form-control input_email" pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$" required value="" placeholder="Укажите свой почтовый адрес">
+                <div class="invalid-feedback">
+                    Пожалуйста, введите почтовый адрес.
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                </div>
+                <input type="text" name="nickname" id="nickname" class="form-control input_nickname" required value="" placeholder="Укажите свой никнейм">
+                <div class="invalid-feedback">
+                    Пожалуйста, введите никнейм.
+                </div>
+            </div>
+
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name="password" id="password" class="form-control input_pass_1" required value="" placeholder="Введите пароль">
+                <div class="invalid-feedback">
+                    Пожалуйста, введите пароль.
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name="password" id="password_confirm" class="form-control input_pass_2" required value="" placeholder="Введите пароль еще раз">
+                <div class="invalid-feedback">
+                    Пожалуйста, введите пароль еще раз.
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <input type="file" class="custom-file-input" id="user-avatar" required placeholder="Выберите аватар">
+                    <label class="input-group-text custom-file-label" for="user-avatar">Выберите аватар</label>
+                    <div class="invalid-feedback">
+                        Пожалуйста, выберите аватар.
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2 login_container">
+                <button type="submit" class="btn btn-danger">Зарегистрироваться</button>
+            </div>
+
+            <div class="d-flex justify-content-center mt-2">
+                Уже есть аккаунт?
+            </div>
+
+            <div class="d-flex justify-content-center mt-2 register_container">
+                <a class="button" href="{% url 'login' %}">Войти</a>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock content %} {% block script %}
+<script src="{% static 'js/validate.js' %}"></script> {% endblock script %}

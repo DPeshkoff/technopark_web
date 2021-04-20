@@ -1,0 +1,14 @@
+{% extends 'include/base.html' %} {% load static %} {% block content %} {% include 'include/question.html' %} {% for answer in page_obj.object_list %} {% include 'include/answer.html' %} {% endfor %}
+
+<form class="needs-validation" novalidate>
+    <div class="enter-answer form-group">
+        <textarea class="form-control" id="answer" placeholder="Введите текст ответа" required></textarea>
+        <button class="btn btn-danger" type="submit">Отправить</button>
+    </div>
+    <div class="invalid-feedback">
+        Пожалуйста, введите текст ответа.
+    </div>
+</form>
+
+{% endblock content %} {% block end_divs %} {% endblock end_divs %} {% block pagination %} {% include 'include/pagination.html' %} {% endblock pagination %} {% block script %}
+<script src="{% static 'js/validate.js' %}"></script> {% endblock script %}
