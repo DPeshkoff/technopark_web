@@ -1,17 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
-questions = [
-    {'id': i + 1,
-     'title': f'Заголовок вопроса №{i + 1}',
-     'description': 'Описание вопроса',
-     'num_of_answers': 5,
-     'num_of_likes': 99,
-     'author': 'Карпухин',
-     'tags': ['arduino', 'amplifiers']}
-    for i in range(100)
-]
-
+from main_app.models import UserProfile, Question, Answer
+from django.core.exceptions import ObjectDoesNotExist
 
 def paginate(objects_list, request, per_page=10):
     paginator = Paginator(objects_list, per_page)
@@ -43,6 +33,7 @@ def settings(request):
 #
 
 def new_questions(request):
+    questions = Question.objects.new_questions()
     page = paginate(questions, request, 10)
     return render(request, 'new_questions.html', {
         'page_obj': page
@@ -50,6 +41,7 @@ def new_questions(request):
 
 
 def popular_questions(request):
+    questions = Question.objects.popular_questions()
     page = paginate(questions, request, 10)
     return render(request, 'popular_questions.html', {
         'page_obj': page
@@ -57,20 +49,21 @@ def popular_questions(request):
 
 
 def question(request, pk):
-    question = questions[pk - 1]
-    answers = [{'id': i + 1,
-                'author': f'студент_иу6',
-                'text': f'Ответ №{i + 1}\n Примерный текст ответа. ',
-                'rating': 4}
-               for i in range(32)]
-    page = paginate(answers, request, 10)
-    return render(request, 'question.html', {
-        'question': question,
-        'page_obj': page
-    })
+    try:
+        question = Question.objects.get(id=pk)
+        answers = question.answers.best_answers()
+        page = paginate(answers, request, 10)
+        return render(request, 'question.html', {
+            'question': question,
+            'page_obj': page
+        })
+    except ObjectDoesNotExist:
+        return render(request, '404.html')
+
 
 
 def tags(request, tag):
+    questions = Question.objects.questions_for_tag(tag).all()
     page = paginate(questions, request, 10)
     return render(request, 'tag.html', {
         'page_obj': page,
