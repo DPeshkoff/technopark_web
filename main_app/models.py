@@ -1,20 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
+
 
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    username = models.CharField(max_length=60, verbose_name='Имя пользователя')
+    nickname = models.CharField(max_length=60, verbose_name='Имя пользователя')
 
-    # TODO - profile pictures
+    email = models.EmailField(max_length=100)
+
+    profile_pic = ResizedImageField(size=[50, 64], quality=100, upload_to='avatars', default='avatars/default_pic.png',
+                                    verbose_name='Аватар')
 
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
 
     def __str__(self):
-        return self.username
+        return self.nickname
 
 
 class QuestionManager(models.Manager):

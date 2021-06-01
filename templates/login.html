@@ -1,7 +1,8 @@
 {% extends 'include/floating_login.html' %} {% load static %} {% block css %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"> {% endblock css %} {% block content %}
 
-<form class="needs-validation" novalidate>
+<form method="post" action="{% url 'login' %}" class="needs-validation" novalidate>
+    {% csrf_token %}
     <div class="d-flex justify-content-center h-100">
         <div class="user_card bg-dark">
             <div class="d-flex justify-content-center">
@@ -12,9 +13,9 @@
 
             <div class="input-group mb-2">
                 <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <span for="{{ form.username.id_for_label }}" class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input type="text" name="username" id="username" class="form-control input_user" required autofocus placeholder="Логин">
+                {{ form.username }}
                 <div class="invalid-feedback">
                     Пожалуйста, введите логин.
                 </div>
@@ -22,13 +23,15 @@
 
             <div class="input-group mb-2">
                 <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    <span for="{{ form.username.id_for_label }}" class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input type="password" name="password" id="password" class="form-control input_pass" required placeholder="Пароль">
+                {{ form.password }}
                 <div class="invalid-feedback">
                     Пожалуйста, введите пароль.
                 </div>
             </div>
+
+            {% include 'include/form_errors.html' %}
 
             <div class="d-flex justify-content-center mt-2 login_container">
                 <button type="submit" class="btn btn-danger">Войти</button>

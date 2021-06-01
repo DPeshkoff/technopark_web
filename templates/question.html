@@ -1,14 +1,12 @@
-{% extends 'include/base.html' %} {% load static %} {% block content %} {% include 'include/question.html' %} {% for answer in page_obj.object_list %} {% include 'include/answer.html' %} {% endfor %}
-
-<form class="needs-validation" novalidate>
+{% extends 'include/base.html' %} {% load static %} {% block content %} {% include 'include/question.html' %} {% for answer in page_obj.object_list %} {% include 'include/answer.html' %} {% endfor %} {% if user.is_authenticated %}
+<form method="post" novalidate>
+    {% csrf_token %}
     <div class="enter-answer form-group">
-        <textarea class="form-control" id="answer" placeholder="Введите текст ответа" required></textarea>
-        <button class="btn btn-danger" type="submit">Отправить</button>
-    </div>
-    <div class="invalid-feedback">
-        Пожалуйста, введите текст ответа.
+        {{ form.content }} {% include 'include/form_errors.html' %}
+        <button class="btn btn-success" type="submit">Отправить ответ</button>
     </div>
 </form>
-
-{% endblock content %} {% block end_divs %} {% endblock end_divs %} {% block pagination %} {% include 'include/pagination.html' %} {% endblock pagination %} {% block script %}
+{% else %}
+<a href="{% url 'login' %}?continue={{ request.path }}" class="btn btn-success">Войдите, чтобы оставить ответ</a> {% endif %} {% endblock content %} {% block end_divs %} {% endblock end_divs %} {% block pagination %} {% include 'include/pagination.html'%}
+{% endblock pagination %} {% block script %}
 <script src="{% static 'js/validate.js' %}"></script> {% endblock script %}

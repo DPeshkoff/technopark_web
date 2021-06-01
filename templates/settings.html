@@ -1,19 +1,23 @@
 {% extends 'include/base.html' %} {% load static %} {% block content %}
 
 <div class="container bg-light shadow-sm mb-3">
-    <form action="question.html" id="create-form" class="needs-validation" novalidate>
+    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+        {% csrf_token %}
         <div class="input-group mb-2">
             <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                <span for="{{ form.username.id_for_label }}" class="input-group-text"><i class="fas fa-user-circle"></i></span>
             </div>
-            <input type="text" name="username" id="username" class="form-control input_user" autofocus value="" placeholder="Укажите свой логин">
+            {{ form.username }}
+            <div class="invalid-feedback">
+                Введите корректный логин
+            </div>
         </div>
 
         <div class="input-group mb-2">
             <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <span for="{{ form.email.id_for_label }}" class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="email" name="email" id="email" class="form-control input_email" pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$" value="" placeholder="Укажите свой почтовый адрес">
+            {{ form.email }}
             <div class="invalid-feedback">
                 Пожалуйста, укажите правильный адрес.
             </div>
@@ -21,39 +25,18 @@
 
         <div class="input-group mb-2">
             <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                <span for="{{ form.nickname.id_for_label }}" class="input-group-text"><i class="fas fa-tag"></i></span>
             </div>
-            <input type="text" name="nickname" id="nickname" class="form-control input_nickname" required value="" placeholder="Укажите свой никнейм">
+            {{ form.nickname }}
             <div class="invalid-feedback">
                 Пожалуйста, введите свой никнейм для подтверждения изменений.
-            </div>
-        </div>
-
-
-        <div class="input-group mb-2">
-            <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-            </div>
-            <input type="password" name="password" id="password" class="form-control input_pass_1" required value="" placeholder="Введите пароль">
-            <div class="invalid-feedback">
-                Пожалуйста, введите пароль.
-            </div>
-        </div>
-
-        <div class="input-group mb-2">
-            <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-            </div>
-            <input type="password" name="password" id="password_confirm" class="form-control input_pass_2" required value="" placeholder="Введите пароль еще раз">
-            <div class="invalid-feedback">
-                Пожалуйста, введите пароль еще раз.
             </div>
         </div>
         <!-- Проблема с placeholder - W3C Validator считает ошибкой, но работает же! (и никому не мешает) -->
         <div class="input-group mb-2">
             <div class="input-group-append">
-                <input type="file" class="custom-file-input" id="user-avatar" placeholder="Выберите аватар">
-                <label class="input-group-text custom-file-label" for="user-avatar">Выберите аватар</label>
+                {{ form.profile_pic }}
+                <label for="{{ user.userprofile.profile_pic.url }}" class="input-group-text custom-file-label" for="user-avatar">Выберите аватар</label>
                 <div class="invalid-feedback">
                     Пожалуйста, выберите аватар.
                 </div>
